@@ -1,3 +1,5 @@
+import math
+
 class Value:
 
     def __init__(self, data, children=(), _op=''):

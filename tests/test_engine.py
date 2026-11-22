@@ -127,6 +127,38 @@ def test_relu_backward_negative():
 
     assert a.grad == 0.0
 
+def test_tanh_forward():
+    a = Value(0.5)
+
+    c = a.tanh()
+
+    assert c.data == pytest.approx(0.46211715726000974)
+
+def test_tanh_backward():
+    a = Value(0.5)
+
+    c = a.tanh()
+    c.backward()
+
+    expected_gradient = 1 - (0.46211715726000974 ** 2)
+    assert a.grad == pytest.approx(expected_gradient)
+
+def test_exp_forward():
+    a = Value(1.5)
+
+    c = a.exp()
+
+    assert c.data == pytest.approx(4.4816890703380645)
+
+
+def test_exp_backward():
+    a = Value(1.5)
+
+    c = a.exp()
+    c.backward()
+
+    assert a.grad == pytest.approx(4.4816890703380645)
+
 def test_gradient_accumulation():
     a = Value(3.0)
 
