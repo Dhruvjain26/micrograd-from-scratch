@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "micrograd-from-scratch"
+version = "0.1.0"
+description = "A tiny automatic differentiation engine and neural network library built from scratch in Python"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "scikit-learn",
+    "graphviz"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "torch"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
